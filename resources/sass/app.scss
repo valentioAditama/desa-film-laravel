@@ -6,3 +6,36 @@
 
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
+
+// @import 'mdb-ui-kit/css/mdb.min.css';
+
+
+.bg-login {
+    background-size: cover;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    filter: brightness(50%);
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+.form-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.card-login{
+    background-color: black;
+    color: white;
+    background: rgba(0, 0, 0, 0.8);
+}
+
+.form-control:focus {
+    border: none;
+}
