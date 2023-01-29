@@ -85,9 +85,7 @@
                             <img src="{{ asset('icon/group.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
                         </div>
                     </div>
-                    <a href="/dataUser">
-                        <button type="button" class="btn btn-primary">Load More</button>
-                    </a>
+                    <button type="button" class="btn btn-primary">Load More</button>
                 </div>
             </div>
         </div>
@@ -104,9 +102,7 @@
                             <img src="{{ asset('icon/movie.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
                         </div>
                     </div>
-                    <a href="/dataMovie">
-                        <button type="button" class="btn btn-primary">Load More</button>
-                    </a>
+                    <button type="button" class="btn btn-primary">Load More</button>
                 </div>
             </div>
         </div>
@@ -123,9 +119,7 @@
                             <img src="{{ asset('icon/review.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
                         </div>
                     </div>
-                    <a href="/dataReview">
-                        <button type="button" class="btn btn-primary">Load More</button>
-                    </a>
+                    <button type="button" class="btn btn-primary">Load More</button>
                 </div>
             </div>
         </div>
@@ -167,7 +161,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <a href="/dataUser">Load More</a>
+                <a href="">Load More</a>
             </div>
         </div>
 
@@ -208,7 +202,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <a href="/dataMovie">Load More</a>
+                <a href="">Load More</a>
             </div>
         </div>
 
@@ -249,7 +243,7 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mb-4">
-                <a href="/dataReview">Load More</a>
+                <a href="">Load More</a>
             </div>
         </div>
 

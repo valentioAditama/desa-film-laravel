@@ -19,7 +19,8 @@ class UserMiddleware
     {
         if (Auth::check() && Auth::user()->role == "User") {
             return $next($request);
+            return redirect('/dashboard');
         }
-        abort(403);
+        abort(404);
     }
 }
