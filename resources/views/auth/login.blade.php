@@ -13,7 +13,7 @@
                                 <h6>Nikmati film di manapun dan kapanpun!</h6>
                             </div>
                             <div class="col-md-6">
-                                <input id="email" type="email" class="bg-dark text-light shadow-none border-0 form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                <input id="email" type="email" class="btn-black text-light shadow-none border-0 form-control @error('email') is-invalid @enderror" placeholder="Email" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
 
                                 @error('email')
                                     <span class="invalid-feedback" role="alert">
@@ -25,7 +25,7 @@
 
                         <div class="row mb-3 justify-content-center opacity-100">
                             <div class="col-md-6">
-                                <input id="password" type="password" class="bg-dark text-light shadow-none border-0 form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
+                                <input id="password" type="password" class="btn-black text-light shadow-none border-0 form-control @error('password') is-invalid @enderror" placeholder="Password" name="password" required autocomplete="current-password">
 
                                 @error('password')
                                     <span class="invalid-feedback" role="alert">
@@ -49,7 +49,7 @@
 
                         <div class="row justify-content-center">
                             <div class="col-md-6">
-                                <button type="submit" class="btn btn-primary container bg-dark border-0">
+                                <button type="submit" class="btn btn-danger container shadow-none">
                                     {{ __('Login') }}
                                 </button>
                                 <div class="text-center mt-3">
