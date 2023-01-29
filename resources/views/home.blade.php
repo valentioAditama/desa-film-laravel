@@ -1,6 +1,6 @@
 @extends('layouts.app')
 <!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-white">
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #212529;">
     <!-- Container wrapper -->
     <div class="container">
         <!-- Toggle button -->
@@ -82,6 +82,73 @@
                     <div id="time"></div>
                 </h4>
             </div>
+        </div>
+    </div>
+</div>
+
+<div class="container-fluid mt-5">
+    <div class="row">
+        <div class="col-md-8"></div>
+        <div class="col-md-4 mb-3">
+            <div class="d-flex justify-content-end">
+                <div class="input-group">
+                    <div class="form-outline">
+                        <input id="search-input" type="search" id="form1" class="form-control" />
+                        <label class="form-label" for="form1">Search</label>
+                    </div>
+                    <button id="search-button" type="button" class="btn btn-primary">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h3><b>Newest Film</b></h3>
+        <div class="card" style="width: 40vh;">
+            <a href="" class="text-dark">
+                <div class="bg-image hover-zoom">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/c/cd/Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg/640px-Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg" class="card-img-top" alt="Sunset Over the Sea" />
+                    <h5 class="mt-3">Harry Potter and the ord ...</h5>
+                    <h6>2023</h6>
+                </div>
+            </a>
+        </div>
+        <div class="d-flex justify-content-end mt-2">
+            <a href="">Load More...</a>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h3><b>Action Film</b></h3>
+        <div class="card" style="width: 40vh;">
+            <a href="" class="text-dark">
+                <div class="bg-image hover-zoom">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/c/cd/Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg/640px-Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg" class="card-img-top" alt="Sunset Over the Sea" />
+                    <h5 class="mt-3">Harry Potter and the ord ...</h5>
+                    <h6>2023</h6>
+                </div>
+            </a>
+        </div>
+        <div class="d-flex justify-content-end mt-2">
+            <a href="">Load More...</a>
+        </div>
+    </div>
+
+    <div class="mb-5">
+        <h3><b>Horror Film</b></h3>
+        <div class="card" style="width: 40vh;">
+            <a href="" class="text-dark">
+                <div class="bg-image hover-zoom">
+                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/c/cd/Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg/640px-Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg" class="card-img-top" alt="Sunset Over the Sea" />
+                    <h5 class="mt-3">Harry Potter and the ord ...</h5>
+                    <h6>2023</h6>
+                </div>
+            </a>
+        </div>
+        <div class="d-flex justify-content-end mt-2">
+            <a href="">Load More...</a>
         </div>
     </div>
 </div>
