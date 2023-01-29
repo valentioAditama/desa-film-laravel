@@ -89,46 +89,31 @@
                 </div>
             </div>
         </div>
-    
+
         <div class="mt-4">
             <h3>Data Users</h3>
-            <table id="table_id" class="table table-sm table-bordered">
-                <thead>
-                    <th>No</th>
-                    <th>Product Name</th>
-                    <th>Stock</th>
-                    <th>Price</th>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>10</td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Peanut Butter Chocolate</td>
-                        <td>5</td>
-                        <td>50</td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Peanut Butter Chocolate Cake</td>
-                        <td>3</td>
-                        <td>100</td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Peanut Butter Chocolate Cake with Kool-aid</td>
-                        <td>2</td>
-                        <td>150</td>
-                    </tr>
-                </tbody>
-            </table>
-            <div class="d-flex justify-content-end">
-                <a href="">Load More</a>
+            <div class="table-responsive">
+                <table id="zero-configuration" class="display table nowrap table-striped table-hover dataTable" style="width: 100%;" role="grid" aria-describedby="zero-configuration_info">
+                    <thead>
+                        <tr role="row">
+                            <th class="sorting_asc" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" aria-sort="ascending" aria-label="Name: activate to sort column descending" style="width: 105px;">
+                                No</th>
+                            <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 164px;">Level <br> (Tingkat) </th>
+                            <th class="sorting" tabindex="0" aria-controls="zero-configuration" rowspan="1" colspan="1" aria-label="Position: activate to sort column ascending" style="width: 164px;">
+                                Institution <br> (Institusi) </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr role="row" class="odd">
+                            <td class="sorting_1">1</td>
+                            <td>helloworld</td>
+                            <td>helloworld</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="d-flex justify-content-end">
+                    <a href="">Load More</a>
+                </div>
             </div>
         </div>
     </div>
-</div>
