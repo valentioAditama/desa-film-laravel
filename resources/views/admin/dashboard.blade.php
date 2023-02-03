@@ -135,9 +135,11 @@
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
-                    <th>Product Name</th>
-                    <th>Stock</th>
-                    <th>Price</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -145,24 +147,47 @@
                         <td>Peanut Butter</td>
                         <td>10</td>
                         <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Peanut Butter Chocolate</td>
                         <td>5</td>
                         <td>50</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Peanut Butter Chocolate Cake</td>
                         <td>3</td>
                         <td>100</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Peanut Butter Chocolate Cake with Kool-aid</td>
                         <td>2</td>
                         <td>150</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+
                     </tr>
                 </tbody>
             </table>
@@ -176,9 +201,11 @@
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
-                    <th>Product Name</th>
-                    <th>Stock</th>
-                    <th>Price</th>
+                    <th>Title</th>
+                    <th>Category</th>
+                    <th>description</th>
+                    <th>Link Film</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     <tr>
@@ -186,24 +213,45 @@
                         <td>Peanut Butter</td>
                         <td>10</td>
                         <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
+
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>Peanut Butter Chocolate</td>
-                        <td>5</td>
-                        <td>50</td>
+                        <td>Peanut Butter</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>Peanut Butter Chocolate Cake</td>
-                        <td>3</td>
-                        <td>100</td>
+                        <td>Peanut Butter</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>Peanut Butter Chocolate Cake with Kool-aid</td>
-                        <td>2</td>
-                        <td>150</td>
+                        <td>Peanut Butter</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -217,34 +265,46 @@
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
-                    <th>Product Name</th>
-                    <th>Stock</th>
-                    <th>Price</th>
+                    <th>Preview</th>
+                    <th>Rating</th>
+                    <th>Action</th>
                 </thead>
                 <tbody>
                     <tr>
                         <td>1</td>
                         <td>Peanut Butter</td>
                         <td>10</td>
-                        <td>10</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>2</td>
                         <td>Peanut Butter Chocolate</td>
                         <td>5</td>
-                        <td>50</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>3</td>
                         <td>Peanut Butter Chocolate Cake</td>
                         <td>3</td>
-                        <td>100</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                     <tr>
                         <td>4</td>
                         <td>Peanut Butter Chocolate Cake with Kool-aid</td>
                         <td>2</td>
-                        <td>150</td>
+                        <td>
+                            <button class="btn btn-primary">Edit</button>
+                            <button class="btn btn-danger">Delete</button>
+                        </td>
                     </tr>
                 </tbody>
             </table>
