@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataUsersController extends Controller
 {
@@ -20,7 +21,13 @@ class DataUsersController extends Controller
 
     public function index()
     {
-        return view('admin.users');
+        // Data Container
+        $dataContainer = DB::table('users')->first();
+
+        // Data Table
+        $data = DB::table('users')->get();
+
+        return view('admin.users', $dataContainer, $data);
     }
 
     /**
@@ -52,7 +59,7 @@ class DataUsersController extends Controller
      */
     public function show($id)
     {
-        //
+        // 
     }
 
     /**

@@ -15,13 +15,13 @@
             </a> <!-- Left links -->
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Data Users</a>
+                    <a class="nav-link" href="/dataUser">Data Users</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Data Movie</a>
+                    <a class="nav-link" href="/dataMovie">Data Movie</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Data Review</a>
+                    <a class="nav-link" href="/dataReview">Data Review</a>
                 </li>
             </ul>
             <!-- Left links -->
@@ -79,19 +79,20 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="card-title">Data Users</h5>
-                            <h1 class="card-text mb-3">100</h1>
+                            <h1 class="card-text mb-3">{{$dataContainer->name}}</h1>
                         </div>
                         <div class="col-md-6">
                             <img src="{{ asset('icon/group.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
                         </div>
                     </div>
-                    <button type="button" class="btn btn-primary">Load More</button>
+                    <button type="button" class="btn btn-primary btn-sm">Load More</button>
                 </div>
             </div>
         </div>
 
         <div class="mt-4">
             <h3>Data Users</h3>
+            <button class="btn btn-success btn-sm mb-3">Add Data</button>
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -103,51 +104,16 @@
                 </thead>
                 <tbody>
                     <tr>
+                        
                         <td>1</td>
                         <td>Peanut Butter</td>
                         <td>10</td>
                         <td>10</td>
                         <td>10</td>
                         <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button class="btn btn-primary btn-sm">Edit</button>
+                            <button class="btn btn-danger btn-sm">Delete</button>
                         </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Peanut Butter Chocolate</td>
-                        <td>5</td>
-                        <td>50</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Peanut Butter Chocolate Cake</td>
-                        <td>3</td>
-                        <td>100</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Peanut Butter Chocolate Cake with Kool-aid</td>
-                        <td>2</td>
-                        <td>150</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-
                     </tr>
                 </tbody>
             </table>
