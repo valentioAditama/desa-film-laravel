@@ -25,6 +25,27 @@
                 Add Users
             </button>
 
+            <!-- Message Response successfully -->
+            @if (session()->has('success'))
+            <script>
+                alert('Data has been saved');
+            </script>
+            @endif
+
+            <!-- Message Response data already exist -->
+            @if (session()->has('data-already'))
+            <script>
+                alert('Data Already Exist');
+            </script>
+            @endif
+
+            <!-- Message Response data already exist -->
+            @if (session()->has('data-already'))
+            <script>
+                alert('Data Already Exist');
+            </script>
+            @endif
+
             <table class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -53,10 +74,9 @@
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <a href="/dataUser">Load More</a>
+                {!! $data->links() !!}
             </div>
         </div>
     </div>
 </div>
-
 @include('components.modal.add-user')

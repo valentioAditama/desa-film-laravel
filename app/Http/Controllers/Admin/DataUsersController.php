@@ -28,7 +28,7 @@ class DataUsersController extends Controller
         $dataContainer = DB::table('users')->count('id');
 
         // Data Table
-        $data = DB::table('users')->get();
+        $data = DB::table('users')->latest()->paginate(10);
 
         return view('admin.users', compact('dataContainer', 'data'));
     }
@@ -52,31 +52,33 @@ class DataUsersController extends Controller
     public function store(Request $request)
     {
         // validate form
-        $validator = Validator::make($request->all(), [
+        Validator::make($request->all(), [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'role' => ['required'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ]);
 
-        try {
-            $post = User::create([
-                'name' => $request->name,
-                'email' => $request->email,
-                'role' => $request->role,
-                'password' => Hash::make('password'),
-            ]);
-        } catch (\Throwable $th) {
-            return $th->getMessage();
+        // check data if data has been save
+        $checkdata = DB::table('users')->where('email', '=', $request->email)->first();
+
+        if ($checkdata == true) {
+            return redirect('/dataUser')->with('data-already', 'Data Already Exists');
+        } else {
+            // try catch handling error
+            try {
+                User::create([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'role' => $request->role,
+                    'password' => Hash::make('password'),
+                ]);
+
+                return redirect('/dataUser')->with('success', 'Data Has Been Saved');
+            } catch (\Throwable $th) {
+                return redirect('/dataUser')->with('failed', 'there is something wrong with the system');
+            }
         }
-
-        return response()->json([
-            'success' => true,
-            'message' => 'Data has been created',
-            'data' => $post
-        ]);
-
-        return redirect('/dataUser', compact('validator'));
     }
 
     /**
