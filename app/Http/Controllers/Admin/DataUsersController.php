@@ -22,12 +22,12 @@ class DataUsersController extends Controller
     public function index()
     {
         // Data Container
-        $dataContainer = DB::table('users')->first();
+        $dataContainer = DB::table('users')->count('id');
 
         // Data Table
         $data = DB::table('users')->get();
 
-        return view('admin.users', $dataContainer, $data);
+        return view('admin.users', compact('dataContainer', 'data'));
     }
 
     /**
