@@ -106,7 +106,7 @@
                     $no = 1;
                     @endphp
                     @foreach($data as $users)
-                    <tr>
+                    <tr> 
                         <td>{{$no++}}</td>
                         <td>{{ $users->name }}</td>
                         <td>{{ $users->email }}</td>
