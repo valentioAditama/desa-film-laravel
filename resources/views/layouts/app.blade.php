@@ -20,11 +20,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" rel="stylesheet" />
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
-
-    <!-- Data Table -->
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.1/css/jquery.dataTables.min.css">
-    <script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <!-- Sweetalert  -->
+    <link rel="stylesheet" href="sweetalert2.min.css">
 
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
@@ -39,10 +36,6 @@
 </body>
 
 <script>
-    $(document).ready(function() {
-        $('#example').DataTable();
-    });
-
     var span = document.getElementById('time');
 
     function time() {
@@ -57,6 +50,8 @@
     setInterval(time, 1000);
 </script>
 
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<script src="sweetalert2.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
 
 </html>

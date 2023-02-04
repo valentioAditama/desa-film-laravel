@@ -18,9 +18,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-    Route::get('/test', function () {
+Route::get('/test', function () {
     $data = DB::table('users')->get();
-        
+
     return ($data);
 });
 
@@ -29,9 +29,16 @@ Auth::routes();
 // Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->middleware('isAdmin');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
+    // Dashboard Admin
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('dashboard');
+
+    // Data User
     Route::get('/dataUser', [App\Http\Controllers\Admin\DataUsersController::class, 'index'])->name('dataUser');
+    Route::post('/dataUser/post', [App\Http\Controllers\Admin\DataUsersController::class, 'store'])->name('dataUser-post');
+
+    // Data Movie
     Route::get('/dataMovie', [App\Http\Controllers\Admin\DataMovieController::class, 'index'])->name('dataMovie');
+    // Data Review
     Route::get('/dataReview', [App\Http\Controllers\Admin\DataReviewController::class, 'index'])->name('dataReview');
 });
 

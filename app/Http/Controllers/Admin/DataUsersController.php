@@ -3,8 +3,11 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class DataUsersController extends Controller
 {
@@ -48,7 +51,32 @@ class DataUsersController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // validate form
+        $validator = Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        try {
+            $post = User::create([
+                'name' => $request->name,
+                'email' => $request->email,
+                'role' => $request->role,
+                'password' => Hash::make('password'),
+            ]);
+        } catch (\Throwable $th) {
+            return $th->getMessage();
+        }
+
+        return response()->json([
+            'success' => true,
+            'message' => 'Data has been created',
+            'data' => $post
+        ]);
+
+        return redirect('/dataUser', compact('validator'));
     }
 
     /**
