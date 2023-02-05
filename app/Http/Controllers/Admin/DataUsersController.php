@@ -112,7 +112,38 @@ class DataUsersController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        // Get data from id
+        $data = User::find($id);
+
+        // validate form
+        Validator::make($request->all(), [
+            'name' => ['required', 'string', 'max:255'],
+            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'role' => ['required'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // check data if data has been save
+        $checkdata = DB::table('users')->where('id', '=', $data->id)->first();
+
+        if ($checkdata == true) {
+            return redirect('/dataUser')->with('data-already', 'Data Already Exists');
+        } else {
+            // try catch handling error
+            try {
+                $data->update([
+                    'name' => $request->name,
+                    'email' => $request->email,
+                    'role' => $request->role,
+                    'password' => Hash::make('password')
+                ]);
+
+                return redirect('/dataUser')->with('success', 'Data Has Been Saved');
+            } catch (\Throwable $th) {
+                return redirect('/dataUser')->with('failed', 'there is something wrong with the system');
+            }
+        }
     }
 
     /**

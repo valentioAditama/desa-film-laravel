@@ -65,7 +65,7 @@
                         <td>{{ $users->email }}</td>
                         <td>{{ $users->role }}</td>
                         <td>
-                            <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal" onclick="edit()" data-target="{{ $users->id }}" id="btn-edit-users">Edit</button>
+                            <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal{{$users->id}}">Edit</button>
                             <button class="btn btn-danger btn-sm">Delete</button>
                         </td>
                     </tr>

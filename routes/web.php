@@ -35,7 +35,6 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Data User
     Route::get('/dataUser', [App\Http\Controllers\Admin\DataUsersController::class, 'index'])->name('dataUser');
     Route::post('/dataUser/post', [App\Http\Controllers\Admin\DataUsersController::class, 'store'])->name('dataUser-post');
-    Route::get('/dataUser/edit/{id}', [App\Http\Controllers\Admin\DataUsersController::class, 'edit'])->name('dataUser-edit');
     Route::post('/dataUser/update/{id}', [App\Http\Controllers\Admin\DataUsersController::class, 'update'])->name('dataUser-update');
 
     // Data Movie
