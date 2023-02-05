@@ -21,6 +21,9 @@
     <!-- MDB -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/3.10.1/mdb.min.css" rel="stylesheet" />
 
+    <!-- Quill text editor -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
     <!-- Scripts -->
     @vite(['resources/sass/app.scss', 'resources/js/app.js'])
 </head>
@@ -32,6 +35,13 @@
         </main>
     </div>
 </body>
+
+<!-- Jquery -->
+<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+<!-- MDB Bootstraps -->
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+<!-- Include the Quill library -->
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 
 <script>
     var span = document.getElementById('time');
@@ -46,9 +56,11 @@
     }
 
     setInterval(time, 1000);
-</script>
 
-<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/6.1.0/mdb.min.js"></script>
+    var quill = new Quill('#editor', {
+        placeholder: "Enter Description",
+        theme: 'snow'
+    });
+</script>
 
 </html>

@@ -17,7 +17,6 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('preview');
             $table->string('rating');
-            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -17,10 +17,11 @@ return new class extends Migration
             $table->string('id')->primary();
             $table->string('title');
             $table->string('id_category');
-            $table->string('description');
+            $table->text('description');
             $table->string('link_film');
-            $table->string('id_review');
-            $table->rememberToken();
+            $table->string('poster');
+            $table->string('link_trailer');
+            $table->string('id_review')->nullable();
             $table->timestamps();
         });
     }

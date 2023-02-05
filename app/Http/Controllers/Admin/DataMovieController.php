@@ -3,7 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class DataMovieController extends Controller
 {
@@ -20,7 +23,7 @@ class DataMovieController extends Controller
 
     public function index()
     {
-        return view('admin.movie');
+        return view('admin.movie.movie');
     }
 
     /**
@@ -30,7 +33,7 @@ class DataMovieController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.movie.create');
     }
 
     /**
@@ -41,7 +44,30 @@ class DataMovieController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validate Form
+        Validator::make($request->all(), [
+            'title' => ['required', 'string', 'max:255'],
+            'category' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'link_film' => ['required', 'string'],
+            'link_trailer' => ['required', 'string'],
+            'poster' => ['required', 'string'],
+        ]);
+
+        // Check data if data has been save
+        try {
+            Movie::create([
+                'title' => $request->title,
+                'description' => $request->description,
+                'link_film' => $request->link_film,
+                'poster' => $request->poster,
+                'link_trailer' => $request->link_trailer
+            ]);
+
+            return redirect('/dataMovie')->with('success', 'Data Has Been Saved');
+        } catch (\Throwable $th) {
+            return redirect('/dataMovie')->with('failed', 'there is something wrong with the system');
+        }
     }
 
     /**

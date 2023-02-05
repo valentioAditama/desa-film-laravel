@@ -40,6 +40,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
     // Data Movie
     Route::get('/dataMovie', [App\Http\Controllers\Admin\DataMovieController::class, 'index'])->name('dataMovie');
+    Route::get('/dataMovie/create', [App\Http\Controllers\Admin\DataMovieController::class, 'create'])->name('dataMovie-create');
+
     // Data Review
     Route::get('/dataReview', [App\Http\Controllers\Admin\DataReviewController::class, 'index'])->name('dataReview');
 });

@@ -20,7 +20,7 @@ class DataReviewController extends Controller
 
     public function index()
     {
-        return view('admin.review');
+        return view('admin.review.review');
     }
 
     /**

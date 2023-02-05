@@ -21,6 +21,15 @@
 
         <div class="mt-3">
             <h3>Data Movie</h3>
+            <a href="/dataMovie/create" class="btn btn-success btn-sm mb-3">Add Movie</a>
+
+            <!-- Message Response successfully -->
+            @if (session()->has('success'))
+            <script>
+                alert('Data has been saved');
+            </script>
+            @endif
+
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -43,42 +52,11 @@
                         </td>
 
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
                 <a href="/dataMovie">Load More</a>
             </div>
         </div>
+    </div>
+</div>

@@ -30,7 +30,7 @@ class DataUsersController extends Controller
         // Data Table
         $data = DB::table('users')->latest('updated_at')->paginate(10);
 
-        return view('admin.users', compact('dataContainer', 'data'));
+        return view('admin.users.users', compact('dataContainer', 'data'));
     }
 
     /**
