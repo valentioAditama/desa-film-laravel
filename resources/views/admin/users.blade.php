@@ -46,6 +46,13 @@
             </script>
             @endif
 
+            <!-- Message Response data deleted -->
+            @if (session()->has('data-deleted'))
+            <script>
+                alert('Data Has been Deleted');
+            </script>
+            @endif
+
             <table class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -66,7 +73,7 @@
                         <td>{{ $users->role }}</td>
                         <td>
                             <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal{{$users->id}}">Edit</button>
-                            <button class="btn btn-danger btn-sm">Delete</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop{{$users->id}}"> Delete </button>
                         </td>
                     </tr>
 
@@ -79,5 +86,7 @@
         </div>
     </div>
 </div>
+
 @include('components.modal.admin-user.add-user')
 @include('components.modal.admin-user.edit-user')
+@include('components.modal.admin-user.delete-user')

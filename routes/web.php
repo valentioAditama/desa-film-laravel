@@ -36,6 +36,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/dataUser', [App\Http\Controllers\Admin\DataUsersController::class, 'index'])->name('dataUser');
     Route::post('/dataUser/post', [App\Http\Controllers\Admin\DataUsersController::class, 'store'])->name('dataUser-post');
     Route::post('/dataUser/update/{id}', [App\Http\Controllers\Admin\DataUsersController::class, 'update'])->name('dataUser-update');
+    Route::post('/dataUser/delete/{id}', [App\Http\Controllers\Admin\DataUsersController::class, 'destroy'])->name('dataUser-delete');
 
     // Data Movie
     Route::get('/dataMovie', [App\Http\Controllers\Admin\DataMovieController::class, 'index'])->name('dataMovie');

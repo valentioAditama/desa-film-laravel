@@ -28,7 +28,7 @@ class DataUsersController extends Controller
         $dataContainer = DB::table('users')->count('id');
 
         // Data Table
-        $data = DB::table('users')->latest()->paginate(10);
+        $data = DB::table('users')->latest('updated_at')->paginate(10);
 
         return view('admin.users', compact('dataContainer', 'data'));
     }
@@ -125,9 +125,10 @@ class DataUsersController extends Controller
         ]);
 
         // check data if data has been save
-        $checkdata = DB::table('users')->where('id', '=', $data->id)->first();
+        $checkdata = DB::table('users')->where('email', '=', $request->email)->first();
 
         if ($checkdata == true) {
+            return "data sudah ada";
             return redirect('/dataUser')->with('data-already', 'Data Already Exists');
         } else {
             // try catch handling error
@@ -154,6 +155,15 @@ class DataUsersController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // Define Data users from id
+        $data = User::find($id);
+
+        // Try Cathing handling error
+        try {
+            $data->delete();
+            return redirect('/dataUser')->with('data-deleted', 'Data Has Been Deleted');
+        } catch (\Throwable $th) {
+            return redirect('/dataUser')->with('failed', 'there is something wrong with the system');
+        }
     }
 }
