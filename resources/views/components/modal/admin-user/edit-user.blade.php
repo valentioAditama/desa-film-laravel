@@ -1,16 +1,17 @@
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="editmodal" tabindex="-1" aria-labelledby="editmodalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Add Users</h5>
+                <h5 class="modal-title" id="editmodalLabel">Edit Users</h5>
                 <button type="button" class="btn-close" data-mdb-dismiss="modal" aria-label="Close"></button>
             </div>
             <form action="/dataUser/post" method="post">
                 @csrf
                 <div class="modal-body">
                     <!-- Get ID -->
-                    <input type="text">
+                    <input type="text" id="id-users" value="">
+
                     <!-- Fullname input -->
                     <div class="form-outline mb-3">
                         <input type="text" id="name" name="name" class="form-control" />
@@ -63,4 +64,27 @@
             pass.type = "password";
         }
     }
+
+    function edit() {
+        var idUsers = $("#btn-edit-users").attr("data-target");
+
+        alert(idUsers);
+
+        // Fetching detail data with ajax
+        $.ajax({
+            url: `/dataUser/edit/${$id}`,
+            type: "GET",
+            cache: false,
+            success: function(response) {
+
+                // fill data to form 
+                let id = $('#id-users').val(response.id);
+                let name = $('#name').val(response.name);
+                let email = $('#email').val(response.email);
+
+                console.log(id);
+
+            }
+        });
+    };
 </script>

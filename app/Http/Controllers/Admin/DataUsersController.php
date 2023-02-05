@@ -100,7 +100,7 @@ class DataUsersController extends Controller
      */
     public function edit($id)
     {
-        //
+        // 
     }
 
     /**
