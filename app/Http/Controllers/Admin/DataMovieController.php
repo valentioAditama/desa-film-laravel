@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Movie;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -44,25 +45,50 @@ class DataMovieController extends Controller
      */
     public function store(Request $request)
     {
+
         // Validate Form
         Validator::make($request->all(), [
             'title' => ['required', 'string', 'max:255'],
-            'category' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'link_film' => ['required', 'string'],
             'link_trailer' => ['required', 'string'],
             'poster' => ['required', 'string'],
         ]);
 
+
+        $insert = [
+            'title' => $request->title,
+            'description' => $request->description,
+            'link_film' => $request->link_film,
+            'poster' => $request->poster,
+            'link_trailer' => $request->link_trailer
+        ];
+
+        $insertCategory = [
+            'category' => $request->category
+        ];
+
+        return DB::table('movie')->insert($insert);
+        DB::table('category')->insert($insertCategory);
+
+
+
         // Check data if data has been save
         try {
-            Movie::create([
+            $insert = [
                 'title' => $request->title,
                 'description' => $request->description,
                 'link_film' => $request->link_film,
                 'poster' => $request->poster,
                 'link_trailer' => $request->link_trailer
-            ]);
+            ];
+
+            $insertCategory = [
+                'category' => $request->category
+            ];
+
+            return DB::table('movie')->insert($insert);
+            DB::table('category')->insert($insertCategory);
 
             return redirect('/dataMovie')->with('success', 'Data Has Been Saved');
         } catch (\Throwable $th) {

@@ -15,7 +15,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
 
 Route::get('/test', function () {
@@ -41,6 +41,8 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Data Movie
     Route::get('/dataMovie', [App\Http\Controllers\Admin\DataMovieController::class, 'index'])->name('dataMovie');
     Route::get('/dataMovie/create', [App\Http\Controllers\Admin\DataMovieController::class, 'create'])->name('dataMovie-create');
+    Route::post('/dataMovie/post', [App\Http\Controllers\Admin\DataMovieController::class, 'store'])->name('dataMovie-post');
+
 
     // Data Review
     Route::get('/dataReview', [App\Http\Controllers\Admin\DataReviewController::class, 'index'])->name('dataReview');

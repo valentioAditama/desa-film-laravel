@@ -5,7 +5,7 @@
     <small>Created Data movie for everyone can Watching</small>
 
     <div class="mt-4">
-        <form action="" method="POST">
+        <form action="/dataMovie/post" method="POST">
             @csrf
 
             <!-- Title input -->
@@ -39,8 +39,8 @@
             </div>
 
             <!-- Category input -->
-            <label for="">Descripton Movie</label>
-            <div id="editor"></div>
+            <label for="description">Descripton Movie</label>
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description"></textarea>
 
             <div class="mt-4">
                 <button class="btn btn-success btn-sm">Upload</button>
