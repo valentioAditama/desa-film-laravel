@@ -2,24 +2,15 @@
 
 namespace App\Models;
 
-use App\Traits\Uuid;
+use App\Traits\UuidTrait;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Str;
 
 class Movie extends Model
 {
-    use HasFactory, Uuid;
+    use HasFactory, HasUuids;
     protected $table = 'movie';
-
-    public static function boot()
-    {
-        parent::boot();
-
-        static::creating(function ($model) {
-            $model->id = Str::uuid();
-        });
-    }
 
     protected $fillable = [
         'id',

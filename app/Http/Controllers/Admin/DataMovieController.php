@@ -87,7 +87,7 @@ class DataMovieController extends Controller
                 'category' => $request->category
             ];
 
-            return DB::table('movie')->insert($insert);
+            DB::table('movie')->insert($insert);
             DB::table('category')->insert($insertCategory);
 
             return redirect('/dataMovie')->with('success', 'Data Has Been Saved');
