@@ -8,7 +8,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="card-title">Data Movie</h5>
-                            <h1 class="card-text mb-3">100</h1>
+                            <h1 class="card-text mb-3">{{$dataContainer}}</h1>
                         </div>
                         <div class="col-md-6">
                             <img src="{{ asset('icon/group.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
@@ -30,6 +30,7 @@
             </script>
             @endif
 
+
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -40,22 +41,26 @@
                     <th>Action</th>
                 </thead>
                 <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
+                    @foreach($data as $movie)
                     <tr>
-                        <td>1</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>10</td>
-                        <td>10</td>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $movie->title }}</td>
+                        <td>{{ $movie->category }}</td>
+                        <td>{{ $movie->description }}</td>
+                        <td>{{ $movie->link_film }}</td>
                         <td>
                             <button class="btn btn-primary">Edit</button>
                             <button class="btn btn-danger">Delete</button>
                         </td>
-
                     </tr>
+                    @endforeach
                 </tbody>
             </table>
             <div class="d-flex justify-content-end">
-                <a href="/dataMovie">Load More</a>
+                {!! $data->links() !!}
             </div>
         </div>
     </div>

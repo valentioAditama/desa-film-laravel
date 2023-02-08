@@ -15,8 +15,10 @@ class Movie extends Model
         'id',
         'title',
         'description',
+        'id_category',
         'link_film',
         'poster',
-        'link_trailer'
+        'link_trailer',
+        'id_review'
     ];
 }
