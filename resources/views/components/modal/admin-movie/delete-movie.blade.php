@@ -10,7 +10,7 @@
             <form action="/dataMovie/delete/{{ $movie->id }}" method="post">
                 @csrf
                 <div class="modal-body">
-                    <input type="text" value="{{$movie->id}}">
+                    <input type="hidden" name="id" value="{{$movie->id}}">
                     Are You Sure?
                 </div>
                 <div class="modal-footer">

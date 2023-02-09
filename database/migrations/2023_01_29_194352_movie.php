@@ -19,6 +19,7 @@ return new class extends Migration
             $table->string('id_category')->nullable();
             $table->text('description');
             $table->string('link_film');
+            $table->string('banner');
             $table->string('poster');
             $table->string('link_trailer');
             $table->string('id_review')->nullable();

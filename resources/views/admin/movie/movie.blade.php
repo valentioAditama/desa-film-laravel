@@ -58,11 +58,12 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $movie->title }}</td>
                         <td>{{ $movie->category }}</td>
-                        <td>{{ $movie->description }}</td>
+                        <td id="description">{{ $movie->description }}</td>
                         <td>
-                            <center>
-                                <img src="/storage/images/{{$movie->poster}}" class="img-fluid" style="height: 60px;" alt="Image">
-                            </center>
+                            <a href="/storage/poster/{{$movie->poster}}">{{$movie->poster}}</a>
+                        </td>
+                        <td>
+                            <a href="/storage/banner/{{$movie->banner}}">{{$movie->banner}}</a>
                         </td>
                         <td>{{ $movie->link_film }}</td>
                         <td>
@@ -82,6 +83,14 @@
         </div>
     </div>
 </div>
+<script>
+    // get id element html
+    let textDescription = document.getElementById("description").innerText;
+    
+    // create max length text description
+    let maxLength = textDescription.substr(0, 175);
+    document.getElementById("description").innerHTML = maxLength + "...";
+</script>
 
 @include('components.modal.admin-movie.delete-movie');
 @include('components.modal.admin-movie.edit-movie');

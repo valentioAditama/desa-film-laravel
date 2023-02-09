@@ -17,6 +17,7 @@ class Movie extends Model
         'description',
         'id_category',
         'link_film',
+        'banner',
         'poster',
         'link_trailer',
         'id_review'

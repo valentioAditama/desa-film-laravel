@@ -38,10 +38,16 @@
                         <label class="form-label" for="Link_trailer">Link Trailer From Youtube</label>
                     </div>
 
+                    <!-- Banner input -->
+                    <label for="">Banner Movie</label>
+                    <div class="form-outline mb-4">
+                        <input type="file" id="banner" class="form-control" name="banner" value="" />
+                    </div>
+
                     <!-- Poster input -->
                     <label for="">Poster Movie</label>
                     <div class="form-outline mb-4">
-                        <input type="file" id="Poster" class="form-control" name="poster" required value="" />
+                        <input type="file" id="Poster" class="form-control" name="poster" value="" />
                     </div>
 
                     <!-- Category input -->

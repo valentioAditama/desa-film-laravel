@@ -29,7 +29,13 @@
             <!-- Link_trailer input -->
             <div class="form-outline mb-4">
                 <input type="text" id="Link_trailer" class="form-control" name="link_trailer" required />
-                <label class="form-label" for="Link_trailer">Link Trailer From Youtube</label>
+                <label class="form-label" for="Link_trailer">Example https://youtube.com/embed/link_movie</label>
+            </div>
+
+            <!-- Banner input -->
+            <label for="">Banner Movie</label>
+            <div class="form-outline mb-4">
+                <input type="file" id="banner" class="form-control" name="banner" required />
             </div>
 
             <!-- Poster input -->

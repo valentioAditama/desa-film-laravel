@@ -5,11 +5,8 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Movie;
-use Illuminate\Http\File;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 class DataMovieController extends Controller
@@ -33,7 +30,6 @@ class DataMovieController extends Controller
         // Get data using joining table
         $data = DB::table('movie')
             ->join('category', 'movie.id_category', '=', 'category.id')
-            ->select('movie.*', 'category.id as category_id')
             ->latest('movie.updated_at')
             ->paginate(10);
 
@@ -64,6 +60,7 @@ class DataMovieController extends Controller
             'description' => ['required', 'string'],
             'link_film' => ['required', 'string'],
             'link_trailer' => ['required', 'string'],
+            'banner' => 'required|image|mimes:jpg,png,jpeg',
             'poster' => 'required|image|mimes:jpg,png,jpeg',
         ]);
 
@@ -75,9 +72,14 @@ class DataMovieController extends Controller
             ]);
 
             // store file to image public
-            $imageName = time() . '.' . $request->poster->extension();
+            // image poster store to storage
+            $imagePoster = time() . '.' . $request->poster->extension();
+            $request->poster->storeAs('public/poster', $imagePoster);
 
-            $request->poster->storeAs('public/images', $imageName);
+            // image Banner store to storage
+            $imageBanner = time() . '.' . $request->banner->extension();
+            $request->banner->storeAs('public/banner', $imageBanner);
+
 
             // Movie Table insert
             Movie::create([
@@ -85,7 +87,8 @@ class DataMovieController extends Controller
                 'description' => $request->description,
                 'id_category' => $category->id,
                 'link_film' => $request->link_film,
-                'poster' => $imageName,
+                'poster' => $imagePoster,
+                'banner' => $imageBanner,
                 'link_trailer' => $request->link_trailer
             ]);
 
@@ -173,15 +176,25 @@ class DataMovieController extends Controller
     {
         // Try Cathing handling error
         try {
-            // return $id;
             // Define Data users from id
-            return $data = Movie::findOrFail($id);
+            $dataMovie = DB::table('movie')
+                // ->select('id as id_movie')
+                ->where('id_category', '=', $id)
+                ->first();
 
+            // return $id using model Movie;
+            $data = Movie::find($dataMovie->id);
+
+            // Delete old image poster in public 
+            $imagePoster = storage_path('app/public/poster/' . $dataMovie->poster);
+            unlink($imagePoster);
+
+            // Delete old image banner in public 
+            $imageBanner = storage_path('app/public/banner/' . $dataMovie->banner);
+            unlink($imageBanner);
+
+            // delete function
             $data->delete();
-
-            // Delete old image in public 
-            $imagePath = storage_path('app/public/images/' . $data->poster);
-            unlink($imagePath);
 
             return redirect('/dataMovie')->with('data-deleted', 'Data Has Been Deleted');
         } catch (\Throwable $th) {

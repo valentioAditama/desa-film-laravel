@@ -20,8 +20,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home')->middleware('isUser');
-// Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->middleware('isAdmin');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Dashboard Admin
