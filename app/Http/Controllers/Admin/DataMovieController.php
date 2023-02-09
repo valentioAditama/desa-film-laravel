@@ -125,7 +125,40 @@ class DataMovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // define id for table movie 
+        $data = DB::table('movie')->where('id_category', '=', $id)->first();
+
+        // Delete old image in public 
+        Storage::delete('public/images', $data->poster);
+
+        // Create category from table category
+        $category = Category::create([
+            'category' => $request->category
+        ]);
+
+        // store file to image public
+        $imageName = time() . '.' . $request->poster->extension();
+
+        $request->poster->storeAs('public/images', $imageName);
+
+        // Movie Table insert
+        Movie::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'id_category' => $category->id,
+            'link_film' => $request->link_film,
+            'poster' => $imageName,
+            'link_trailer' => $request->link_trailer
+        ]);
+
+        // handling error
+        try {
+            // updated data 
+            $data->update();
+            return redirect('/dataMovie')->with('data-updated', 'Data has Been Updated');
+        } catch (\Throwable $th) {
+            return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
+        }
     }
 
     /**
@@ -136,9 +169,8 @@ class DataMovieController extends Controller
      */
     public function destroy($id)
     {
-        // return $id;
         // Define Data users from id
-        return $data = Movie::find($id);
+        $data = DB::table('movie')->where('id_category', '=', $id)->first();
 
         // Try Cathing handling error
         try {
