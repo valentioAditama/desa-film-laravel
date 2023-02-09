@@ -129,7 +129,10 @@ class DataMovieController extends Controller
         $data = DB::table('movie')->where('id_category', '=', $id)->first();
 
         // Delete old image in public 
-        Storage::delete('public/images', $data->poster);
+        $imagePath = storage_path('app/public/images/' . $data->poster);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
 
         // Create category from table category
         $category = Category::create([
@@ -171,6 +174,12 @@ class DataMovieController extends Controller
     {
         // Define Data users from id
         $data = DB::table('movie')->where('id_category', '=', $id)->first();
+
+        // Delete old image in public 
+        $imagePath = storage_path('app/public/images/' . $data->poster);
+        if (file_exists($imagePath)) {
+            unlink($imagePath);
+        }
 
         // Try Cathing handling error
         try {

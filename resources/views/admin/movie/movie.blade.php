@@ -62,14 +62,14 @@
                         <td>
                             <center>
                                 <img src="/storage/images/{{$movie->poster}}" class="img-fluid" style="height: 60px;" alt="Image">
-                            </center> 
+                            </center>
                         </td>
                         <td>{{ $movie->link_film }}</td>
                         <td>
                             <iframe src="{{$movie->link_trailer}}" height="100" width="180" frameborder="0"></iframe>
                         </td>
                         <td>
-                        <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal{{$movie->id}}">Edit</button>
+                            <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal{{$movie->id}}">Edit</button>
                             <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop{{$movie->id}}">Delete</button>
                         </td>
                     </tr>

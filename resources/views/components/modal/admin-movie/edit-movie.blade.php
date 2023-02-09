@@ -46,11 +46,13 @@
 
                     <!-- Category input -->
                     <label for="description">Descripton Movie</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description"></textarea>
+                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description">
+                    {{ $movie->description }}
+                    </textarea>
 
                     <div class="mt-4">
                         <button class="btn btn-success btn-sm">Upload</button>
-                        <a href="/dashboard" class="btn btn-primary btn-sm">Back</a>
+                        <a href="/dataMovie" class="btn btn-primary btn-sm">Back</a>
                     </div>
                 </div>
             </form>
