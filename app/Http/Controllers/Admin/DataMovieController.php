@@ -33,6 +33,7 @@ class DataMovieController extends Controller
         // Get data using joining table
         $data = DB::table('movie')
             ->join('category', 'movie.id_category', '=', 'category.id')
+            ->select('movie.*', 'category.id as category_id')
             ->latest('movie.updated_at')
             ->paginate(10);
 
@@ -128,36 +129,34 @@ class DataMovieController extends Controller
         // define id for table movie 
         $data = DB::table('movie')->where('id_category', '=', $id)->first();
 
+        // define id for table category 
+        $dataCategory = DB::table('category')->where('id', '=', $data->id_category)->first();
+
         // Delete old image in public 
         $imagePath = storage_path('app/public/images/' . $data->poster);
         if (file_exists($imagePath)) {
             unlink($imagePath);
         }
 
-        // Create category from table category
-        $category = Category::create([
-            'category' => $request->category
-        ]);
-
         // store file to image public
         $imageName = time() . '.' . $request->poster->extension();
-
         $request->poster->storeAs('public/images', $imageName);
-
-        // Movie Table insert
-        Movie::create([
-            'title' => $request->title,
-            'description' => $request->description,
-            'id_category' => $category->id,
-            'link_film' => $request->link_film,
-            'poster' => $imageName,
-            'link_trailer' => $request->link_trailer
-        ]);
 
         // handling error
         try {
-            // updated data 
-            $data->update();
+            // updated data movie
+            $data->update([
+                'title' => $request->title,
+                'description' => $request->description,
+                'link_film' => $request->link_film,
+                'poster' => $imageName,
+                'link_trailer' => $request->link_trailer
+            ]);
+
+            $dataCategory->update([
+                'category' => $request->category
+            ]);
+
             return redirect('/dataMovie')->with('data-updated', 'Data has Been Updated');
         } catch (\Throwable $th) {
             return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
@@ -172,18 +171,18 @@ class DataMovieController extends Controller
      */
     public function destroy($id)
     {
-        // Define Data users from id
-        $data = DB::table('movie')->where('id_category', '=', $id)->first();
-
-        // Delete old image in public 
-        $imagePath = storage_path('app/public/images/' . $data->poster);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
-
         // Try Cathing handling error
         try {
+            // return $id;
+            // Define Data users from id
+            return $data = Movie::findOrFail($id);
+
             $data->delete();
+
+            // Delete old image in public 
+            $imagePath = storage_path('app/public/images/' . $data->poster);
+            unlink($imagePath);
+
             return redirect('/dataMovie')->with('data-deleted', 'Data Has Been Deleted');
         } catch (\Throwable $th) {
             return redirect('/dataMovie')->with('failed', 'there is something wrong with the system');

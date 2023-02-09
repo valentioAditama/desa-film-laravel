@@ -128,11 +128,11 @@ class DataUsersController extends Controller
         $checkdata = DB::table('users')->where('email', '=', $request->email)->first();
 
         if ($checkdata == true) {
-            return "data sudah ada";
             return redirect('/dataUser')->with('data-already', 'Data Already Exists');
         } else {
             // try catch handling error
             try {
+                // update data
                 $data->update([
                     'name' => $request->name,
                     'email' => $request->email,
