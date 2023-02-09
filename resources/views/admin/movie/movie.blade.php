@@ -46,6 +46,7 @@
                     <th>description</th>
                     <th>Poster</th>
                     <th>Link Film</th>
+                    <th>Trailer Youtube</th>
                     <th>Action</th>
                 </thead>
                 <tbody>
@@ -64,6 +65,9 @@
                             </center> 
                         </td>
                         <td>{{ $movie->link_film }}</td>
+                        <td>
+                            <iframe src="{{$movie->link_trailer}}" height="100" width="180" frameborder="0"></iframe>
+                        </td>
                         <td>
                             <button class="btn btn-primary">Edit</button>
                             <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop{{$movie->id}}">Delete</button>
