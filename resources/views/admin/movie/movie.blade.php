@@ -30,6 +30,13 @@
             </script>
             @endif
 
+            <!-- Message Response Deleted -->
+            @if (session()->has('data-deleted'))
+            <script>
+                alert('Data Has Been Deleted')
+            </script>
+            @endif
+
 
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
@@ -37,6 +44,7 @@
                     <th>Title</th>
                     <th>Category</th>
                     <th>description</th>
+                    <th>Poster</th>
                     <th>Link Film</th>
                     <th>Action</th>
                 </thead>
@@ -50,10 +58,15 @@
                         <td>{{ $movie->title }}</td>
                         <td>{{ $movie->category }}</td>
                         <td>{{ $movie->description }}</td>
+                        <td>
+                            <center>
+                                <img src="/storage/images/{{$movie->poster}}" class="img-fluid" style="height: 60px;" alt="Image">
+                            </center> 
+                        </td>
                         <td>{{ $movie->link_film }}</td>
                         <td>
                             <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
+                            <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop{{$movie->id}}">Delete</button>
                         </td>
                     </tr>
                     @endforeach
@@ -65,3 +78,5 @@
         </div>
     </div>
 </div>
+
+@include('components.modal.admin-movie.delete-movie');

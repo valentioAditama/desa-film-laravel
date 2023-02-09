@@ -74,7 +74,9 @@ class DataMovieController extends Controller
             ]);
 
             // store file to image public
-            return $request->;
+            $imageName = time() . '.' . $request->poster->extension();
+
+            $request->poster->storeAs('public/images', $imageName);
 
             // Movie Table insert
             Movie::create([
@@ -82,7 +84,7 @@ class DataMovieController extends Controller
                 'description' => $request->description,
                 'id_category' => $category->id,
                 'link_film' => $request->link_film,
-                // 'poster' => $image_path,
+                'poster' => $imageName,
                 'link_trailer' => $request->link_trailer
             ]);
 
@@ -134,6 +136,16 @@ class DataMovieController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // return $id;
+        // Define Data users from id
+        return $data = Movie::find($id);
+
+        // Try Cathing handling error
+        try {
+            $data->delete();
+            return redirect('/dataMovie')->with('data-deleted', 'Data Has Been Deleted');
+        } catch (\Throwable $th) {
+            return redirect('/dataMovie')->with('failed', 'there is something wrong with the system');
+        }
     }
 }

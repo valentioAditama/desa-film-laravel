@@ -42,6 +42,7 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     Route::get('/dataMovie', [App\Http\Controllers\Admin\DataMovieController::class, 'index'])->name('dataMovie');
     Route::get('/dataMovie/create', [App\Http\Controllers\Admin\DataMovieController::class, 'create'])->name('dataMovie-create');
     Route::post('/dataMovie/post', [App\Http\Controllers\Admin\DataMovieController::class, 'store'])->name('dataMovie-post');
+    Route::post('/dataMovie/delete/{id}', [App\Http\Controllers\Admin\DataMovieController::class, 'destroy'])->name('dataMovie-delete');
 
 
     // Data Review

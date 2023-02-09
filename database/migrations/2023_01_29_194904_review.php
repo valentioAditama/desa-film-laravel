@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('review', function (Blueprint $table) {
-            $table->uuid('id');
+            $table->uuid('id')->primary();
             $table->string('preview');
             $table->string('rating');
             $table->timestamps();

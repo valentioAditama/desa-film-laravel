@@ -5,7 +5,7 @@
     <small>Created Data movie for everyone can Watching</small>
 
     <div class="mt-4">
-        <form action="/dataMovie/post" method="POST">
+        <form action="/dataMovie/post" method="POST" enctype="multipart/form-data">
             @csrf
 
             <!-- Title input -->
