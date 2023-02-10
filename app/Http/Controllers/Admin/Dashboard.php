@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Movie;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class Dashboard extends Controller
@@ -20,7 +22,20 @@ class Dashboard extends Controller
 
     public function index()
     {
-        return view('admin.dashboard.dashboard');
+        // data count for data users container and table
+        $dataUser = User::all()->count('id');
+        $dataUserTable = User::all();
+
+        // data count for data movie container and table
+        $dataMovie = Movie::all()->count('id');
+        $dataMovieTable = Movie::all();
+
+        return view('admin.dashboard.dashboard', compact(
+            'dataUser',
+            'dataUserTable',
+            'dataMovie',
+            'dataMovieTable'
+        ));
     }
 
     /**

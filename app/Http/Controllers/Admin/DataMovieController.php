@@ -54,18 +54,19 @@ class DataMovieController extends Controller
      */
     public function store(Request $request)
     {
-        // Validate Form
-        Validator::make($request->all(), [
-            'title' => ['required', 'string', 'max:255'],
-            'description' => ['required', 'string'],
-            'link_film' => ['required', 'string'],
-            'link_trailer' => ['required', 'string'],
-            'banner' => 'required|image|mimes:jpg,png,jpeg',
-            'poster' => 'required|image|mimes:jpg,png,jpeg',
-        ]);
-
         // Handling Catch Error
         try {
+
+            // Validate Form
+            Validator::make($request->all(), [
+                'title' => ['required', 'string', 'max:255'],
+                'description' => ['required', 'string'],
+                'link_film' => ['required', 'string'],
+                'link_trailer' => ['required', 'string'],
+                'banner' => 'required|image|mimes:jpg,png,jpeg',
+                'poster' => 'required|image|mimes:jpg,png,jpeg',
+            ]);
+
             // Category table insert and get add variable for get id category
             $category = Category::create([
                 'category' => $request->category
@@ -209,8 +210,7 @@ class DataMovieController extends Controller
 
             return redirect('/dataMovie')->with('data-updated', 'Data has Been Updated');
         } catch (\Throwable $th) {
-            return redirect('/dataMovie')->with('failed', $th->getMessage());
-            // return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
+            return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
         }
     }
 

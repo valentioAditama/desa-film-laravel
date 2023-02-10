@@ -155,11 +155,12 @@ class DataUsersController extends Controller
      */
     public function destroy($id)
     {
-        // Define Data users from id
-        $data = User::find($id);
-
         // Try Cathing handling error
         try {
+
+            // Define Data users from id
+            $data = User::find($id);
+
             $data->delete();
             return redirect('/dataUser')->with('data-deleted', 'Data Has Been Deleted');
         } catch (\Throwable $th) {
