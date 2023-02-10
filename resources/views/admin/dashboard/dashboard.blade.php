@@ -94,9 +94,10 @@
                     <th>No</th>
                     <th>Title</th>
                     <th>Category</th>
-                    <th>description</th>
+                    <th>Description</th>
+                    <th>Poster</th>
+                    <th>Banner</th>
                     <th>Link Film</th>
-                    <th>Action</th>
                 </thead>
                 <tbody>
                     @php
@@ -117,10 +118,6 @@
                         <td>{{ $movie->link_film }}</td>
                         <td>
                             <iframe src="{{$movie->link_trailer}}" height="100" width="180" frameborder="0"></iframe>
-                        </td>
-                        <td>
-                            <button class="btn btn-primary btn-sm" data-mdb-toggle="modal" data-mdb-target="#editmodal{{$movie->id}}">Edit</button>
-                            <button type="button" class="btn btn-danger btn-sm" data-mdb-toggle="modal" data-mdb-target="#staticBackdrop{{$movie->id}}">Delete</button>
                         </td>
                     </tr>
                     @endforeach

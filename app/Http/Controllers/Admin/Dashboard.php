@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Movie;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class Dashboard extends Controller
 {
@@ -24,11 +25,16 @@ class Dashboard extends Controller
     {
         // data count for data users container and table
         $dataUser = User::all()->count('id');
-        $dataUserTable = User::all();
+        $dataUserTable = DB::table('users')
+            ->latest('users.updated_at')
+            ->paginate(5);
 
         // data count for data movie container and table
         $dataMovie = Movie::all()->count('id');
-        $dataMovieTable = Movie::all();
+        $dataMovieTable = DB::table('movie')
+            ->join('category', 'movie.id_category', '=', 'category.id')
+            ->latest('movie.updated_at')
+            ->paginate(5);
 
         return view('admin.dashboard.dashboard', compact(
             'dataUser',
