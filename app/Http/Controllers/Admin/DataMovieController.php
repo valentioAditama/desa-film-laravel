@@ -129,40 +129,88 @@ class DataMovieController extends Controller
      */
     public function update(Request $request, $id)
     {
-        // define id for table movie 
-        $data = DB::table('movie')->where('id_category', '=', $id)->first();
-
-        // define id for table category 
-        $dataCategory = DB::table('category')->where('id', '=', $data->id_category)->first();
-
-        // Delete old image in public 
-        $imagePath = storage_path('app/public/images/' . $data->poster);
-        if (file_exists($imagePath)) {
-            unlink($imagePath);
-        }
-
-        // store file to image public
-        $imageName = time() . '.' . $request->poster->extension();
-        $request->poster->storeAs('public/images', $imageName);
-
         // handling error
         try {
-            // updated data movie
-            $data->update([
-                'title' => $request->title,
-                'description' => $request->description,
-                'link_film' => $request->link_film,
-                'poster' => $imageName,
-                'link_trailer' => $request->link_trailer
-            ]);
+            // define id for table movie 
+            $data = DB::table('movie')->where('id_category', '=', $id)->first();
 
-            $dataCategory->update([
+            // passing data id movie to create using model
+            $movie = Movie::find($data->id);
+
+            // define id for table category 
+            $dataCategory = DB::table('category')->where('id', '=', $data->id_category)->first();
+
+            // passing data id Category to create using model
+            $category = Category::find($dataCategory->id);
+
+            // Delete old image in public 
+            if ($request->hasFile('poster')) {
+                $checkPoster = storage_path('app/public/poster/' . $data->poster);
+                unlink($checkPoster);
+
+                // store file to image public
+                // image poster store to storage
+                $imagePoster = time() . '.' . $request->poster->extension();
+                $request->poster->storeAs('public/poster', $imagePoster);
+
+                // updated data movie
+                $movie->update([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'id_category' => $dataCategory->id,
+                    'link_film' => $request->link_film,
+                    'poster' => $imagePoster,
+                    'link_trailer' => $request->link_trailer
+                ]);
+            } else {
+                // updated data movie
+                $movie->update([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'id_category' => $dataCategory->id,
+                    'link_film' => $request->link_film,
+                    'link_trailer' => $request->link_trailer
+                ]);
+            }
+
+            // Delete old image banner in public 
+            if ($request->hasFile('banner')) {
+                $checkBanner = storage_path('app/public/banner/' . $data->banner);
+                unlink($checkBanner);
+
+                // store file to image public
+                // image Banner store to storage
+                $imageBanner = time() . '.' . $request->banner->extension();
+                $request->banner->storeAs('public/banner', $imageBanner);
+
+                // updated data movie
+                $movie->update([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'id_category' => $dataCategory->id,
+                    'link_film' => $request->link_film,
+                    'banner' => $imageBanner,
+                    'link_trailer' => $request->link_trailer
+                ]);
+            } else {
+                // updated data movie
+                $movie->update([
+                    'title' => $request->title,
+                    'description' => $request->description,
+                    'id_category' => $dataCategory->id,
+                    'link_film' => $request->link_film,
+                    'link_trailer' => $request->link_trailer
+                ]);
+            }
+
+            $category->update([
                 'category' => $request->category
             ]);
 
             return redirect('/dataMovie')->with('data-updated', 'Data has Been Updated');
         } catch (\Throwable $th) {
-            return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
+            return redirect('/dataMovie')->with('failed', $th->getMessage());
+            // return redirect('/dataMovie')->with('failed', 'There is something wrong with the system');
         }
     }
 

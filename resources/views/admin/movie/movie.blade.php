@@ -37,7 +37,6 @@
             </script>
             @endif
 
-
             <table id="table_id" class="table table-sm table-bordered">
                 <thead>
                     <th>No</th>
@@ -86,7 +85,7 @@
 <script>
     // get id element html
     let textDescription = document.getElementById("description").innerText;
-    
+
     // create max length text description
     let maxLength = textDescription.substr(0, 175);
     document.getElementById("description").innerHTML = maxLength + "...";
