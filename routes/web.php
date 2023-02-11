@@ -24,6 +24,9 @@ Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('ho
 // Review Film
 Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'show'])->name('review');
 
+// Category Film
+Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('index');
+
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Dashboard Admin
     Route::get('/dashboard', [App\Http\Controllers\Admin\Dashboard::class, 'index'])->name('dashboard');
