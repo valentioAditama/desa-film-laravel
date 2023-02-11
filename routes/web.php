@@ -15,11 +15,14 @@ use Illuminate\Support\Facades\Storage;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-});
-
 Auth::routes();
+
+// User
+// Dashboard
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Review Film
+Route::get('/review', [App\Http\Controllers\ReviewController::class, 'index'])->name('review');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Dashboard Admin
@@ -40,8 +43,4 @@ Route::group(['middleware' => ['auth', 'isAdmin']], function () {
 
     // Data Review
     Route::get('/dataReview', [App\Http\Controllers\Admin\DataReviewController::class, 'index'])->name('dataReview');
-});
-
-Route::group(['middleware' => ['auth', 'isUser']], function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
