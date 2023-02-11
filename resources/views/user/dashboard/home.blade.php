@@ -1,6 +1,6 @@
 @extends('layouts.app')
-@include('components.navbar.navbar')
-<!-- Background image -->
+@include('components.navbar.navbarUser')
+<!-- Banner image -->
 <div class="p-5 text-center bg-image" style="
       background-image: url('{{ asset('src/interstellar.jpg') }}');
       height: 400px;
@@ -39,7 +39,7 @@
         <h3><b>Newest Film</b></h3>
         @foreach($data as $movie)
         <div class="card shadow-0" style="width: 40vh;">
-            <a href="" class="text-dark">
+            <a href="/review/{{$movie->id}}" class="text-dark">
                 <div class="bg-image hover-zoom">
                     <img src="/storage/poster/{{$movie->poster}}" class="card-img-top" alt="Sunset Over the Sea" />
                     <h5 class="mt-3">{{$movie->title}}</h5>

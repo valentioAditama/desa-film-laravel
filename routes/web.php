@@ -22,7 +22,7 @@ Auth::routes();
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // Review Film
-Route::get('/review', [App\Http\Controllers\ReviewController::class, 'index'])->name('review');
+Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'show'])->name('review');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {
     // Dashboard Admin

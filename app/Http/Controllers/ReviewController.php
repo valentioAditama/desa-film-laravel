@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Movie;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class ReviewController extends Controller
 {
@@ -13,7 +15,7 @@ class ReviewController extends Controller
      */
     public function index()
     {
-        return view('user.review.review');
+        // 
     }
 
     /**
@@ -45,7 +47,13 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        //
+        // Get data using joining table
+        $data = DB::table('movie')
+            ->where('movie.id', '=', $id)
+            ->join('category', 'movie.id_category', '=', 'category.id')
+            ->first();
+
+        return view('user.review.review', compact('data'));
     }
 
     /**

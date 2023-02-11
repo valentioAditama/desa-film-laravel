@@ -4,9 +4,6 @@
 // Variables
 @import 'variables';
 
-// Bootstrap
-// @import 'bootstrap/scss/bootstrap';
-
 // MDB  
 @import 'mdb-ui-kit/css/mdb.min.css';
 
@@ -47,10 +44,26 @@
     border: none;
 }
 
-.btn-black{
+.btn-black {
     background-color: #212529;
 }
 
-.image-dashboard{
+.image-dashboard {
     height: 100vh;
+}
+
+.contentReview {
+    margin-top: 40px;
+}
+
+.bannerReview {
+    height: 60vh;
+}
+
+.posterReview {
+    height: 60vh;
+}
+
+.trailerReview {
+    height: 70vh;
 }
