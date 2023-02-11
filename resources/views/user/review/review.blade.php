@@ -33,7 +33,7 @@
                     <div class="col-md-6">
                         <p>{{$data->description}}</p>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 mb-4">
                         <img src="/storage/poster/{{$data->poster}}" class="img-fluid posterReview" alt="">
                     </div>
                     <iframe src="{{$data->link_trailer}}" class="trailerReview" frameborder="0"></iframe>
