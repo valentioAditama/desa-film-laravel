@@ -20,7 +20,7 @@
 <div class="container contentReview">
     <!-- content -->
     <div class="row">
-        <div class="col-md-9">
+        <div class="col-md-12">
             <div class="mb-3">
                 <h3>{{$data->title}}</h3>
                 <h6>{{$data->category}}</h6>
@@ -38,7 +38,7 @@
                     </div>
                     <iframe src="{{$data->link_trailer}}" class="trailerReview" frameborder="0"></iframe>
                 </div>
-                <a href="{{$data->link_film}}" class="btn btn-dark btn-lg mt-3">Klik Movie</a>
+                <a href="{{$data->link_film}}" class="btn btn-dark btn-lg mt-3">Watch Movie</a>
             </div>
         </div>
     </div>

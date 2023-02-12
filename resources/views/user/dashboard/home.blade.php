@@ -36,49 +36,21 @@
     </div>
 
     <div class="mb-5">
-        <h3><b>Newest Film</b></h3>
-        @foreach($data as $movie)
-        <div class="card shadow-0" style="width: 40vh;">
-            <a href="/review/{{$movie->id}}" class="text-dark">
-                <div class="bg-image hover-zoom">
-                    <img src="/storage/poster/{{$movie->poster}}" class="card-img-top" alt="Sunset Over the Sea" />
-                    <h5 class="mt-3">{{$movie->title}}</h5>
-                    <h6>2010</h6>
+        <div class="row">
+            <h3><b>Newest Film</b></h3>
+            @foreach($data as $movie)
+            <div class="col-md-2">
+                <div class="card shadow-0">
+                    <a href="/review/{{$movie->id}}" class="text-dark">
+                        <div class="bg-image hover-zoom">
+                        <img src="/storage/poster/{{$movie->poster}}" class="card-img-top posterHome" alt="Sunset Over the Sea" />
+                            <h5 class="mt-3">{{$movie->title}}</h5>
+                            <h6>2010</h6>
+                        </div>
+                    </a>
                 </div>
-            </a>
-        </div>
-        @endforeach
-        <div class="d-flex justify-content-end mt-2">
-            <a href="">Load More...</a>
-        </div>
-    </div>
-
-    <div class="mb-5">
-        <h3><b>Action Film</b></h3>
-        <div class="card shadow-0" style="width: 40vh;">
-            <a href="" class="text-dark">
-                <div class="bg-image hover-zoom">
-                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/c/cd/Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg/640px-Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg" class="card-img-top" alt="Sunset Over the Sea" />
-                    <h5 class="mt-3">Harry Potter and the ord ...</h5>
-                    <h6>2023</h6>
-                </div>
-            </a>
-        </div>
-        <div class="d-flex justify-content-end mt-2">
-            <a href="">Load More...</a>
-        </div>
-    </div>
-
-    <div class="mb-5">
-        <h3><b>Horror Film</b></h3>
-        <div class="card shadow-0" style="width: 40vh;">
-            <a href="" class="text-dark">
-                <div class="bg-image hover-zoom">
-                    <img src="https://upload.wikimedia.org/wikipedia/id/thumb/c/cd/Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg/640px-Poster_film_Harry_Potter_and_The_Order_of_Phoenix_%282007%29.jpg" class="card-img-top" alt="Sunset Over the Sea" />
-                    <h5 class="mt-3">Harry Potter and the ord ...</h5>
-                    <h6>2023</h6>
-                </div>
-            </a>
+            </div>
+            @endforeach
         </div>
         <div class="d-flex justify-content-end mt-2">
             <a href="">Load More...</a>
