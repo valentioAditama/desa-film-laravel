@@ -44,6 +44,7 @@
                     <th>Category</th>
                     <th>description</th>
                     <th>Poster</th>
+                    <th>Banner</th>
                     <th>Link Film</th>
                     <th>Trailer Youtube</th>
                     <th>Action</th>
