@@ -58,7 +58,7 @@
                         <td>{{ $no++ }}</td>
                         <td>{{ $movie->title }}</td>
                         <td>{{ $movie->category }}</td>
-                        <td id="description">{{ substr($movie->description, 0, 20) }}</td>
+                        <td id="description">{{ substr($movie->description, 0, 20) }}...</td>
                         <td>
                             <a href="/storage/poster/{{$movie->poster}}">{{$movie->poster}}</a>
                         </td>
