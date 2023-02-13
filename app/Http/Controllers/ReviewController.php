@@ -49,7 +49,7 @@ class ReviewController extends Controller
     {
         // Get data using joining table
         $data = DB::table('movie')
-            ->where('movie.id', '=', $id)
+            ->where('movie.id_category', '=', $id)
             ->join('category', 'movie.id_category', '=', 'category.id')
             ->first();
 
