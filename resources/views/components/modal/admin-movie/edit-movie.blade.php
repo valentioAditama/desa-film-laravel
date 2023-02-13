@@ -52,7 +52,7 @@
 
                     <!-- Category input -->
                     <label for="description">Descripton Movie</label>
-                    <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description">
+                <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description" maxlength="500">
                     {{ $movie->description }}
                     </textarea>
 

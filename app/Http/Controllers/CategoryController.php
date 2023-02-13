@@ -17,7 +17,7 @@ class CategoryController extends Controller
         // Default showing and searching showing movie
         $showingSearch = DB::table('movie')
             ->join('category', 'movie.id_category', '=', 'category.id')
-            ->where('category.category', 'LIKE', '%' . $request->searchCategory . '%')
+            ->where('movie.title', 'LIKE', '%' . $request->searchCategory . '%')
             ->paginate(12);
 
         // return back to value input elements searching 

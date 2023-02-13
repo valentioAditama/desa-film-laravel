@@ -46,7 +46,11 @@
 
             <!-- Category input -->
             <label for="description">Descripton Movie</label>
-            <textarea name="description" id="description" cols="30" rows="10" class="form-control" placeholder="Input Description"></textarea>
+            <div class="form-outline">
+                <input type="text" id="form16" class="form-control" name="description" data-mdb-showcounter="true" maxlength="500" />
+                <label class="form-label" for="form16">Example label</label>
+                <div class="form-helper"></div>
+            </div>
 
             <div class="mt-4">
                 <button class="btn btn-success btn-sm">Upload</button>

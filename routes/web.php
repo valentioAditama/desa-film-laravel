@@ -25,7 +25,7 @@ Route::get('/searchMovie', [App\Http\Controllers\HomeController::class, 'searchM
 // Review Film
 Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'show'])->name('review');
 
-// Category Film
+// Category Film and search feature
 Route::get('/category', [App\Http\Controllers\CategoryController::class, 'index'])->name('index');
 
 Route::group(['middleware' => ['auth', 'isAdmin']], function () {

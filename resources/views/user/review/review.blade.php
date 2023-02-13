@@ -19,8 +19,8 @@
 
 <div class="container contentReview">
     <!-- content -->
-    <div class="row">
-        <div class="col-md-12">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
             <div class="mb-3">
                 <h3>{{$data->title}}</h3>
                 <h6>{{$data->category}}</h6>
@@ -31,12 +31,12 @@
             <div class="mb-3">
                 <div class="row">
                     <div class="col-md-6">
-                        <p>{{$data->description}}</p>
-                    </div>
-                    <div class="col-md-6 mb-4">
                         <img src="/storage/poster/{{$data->poster}}" class="img-fluid posterReview" alt="">
                     </div>
-                    <iframe src="{{$data->link_trailer}}" class="trailerReview" frameborder="0"></iframe>
+                    <div class="col-md-6">
+                        <p>{{$data->description}}</p>
+                    </div>
+                    <iframe src="{{$data->link_trailer}}" class="trailerReview mt-3" frameborder="0"></iframe>
                 </div>
                 <a href="{{$data->link_film}}" class="btn btn-dark btn-lg mt-3">Watch Movie</a>
             </div>
