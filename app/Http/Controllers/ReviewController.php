@@ -47,12 +47,27 @@ class ReviewController extends Controller
      */
     public function show($id)
     {
-        // Get data using joining table
-        $data = DB::table('movie')
-            ->where('movie.id_category', '=', $id)
-            ->join('category', 'movie.id_category', '=', 'category.id')
+        // if opened using category
+        $categoryShowing = DB::table('category')
+            ->where('id', '=', $id)
             ->first();
 
+        if ($categoryShowing) {
+            // if using access from category
+            // Get data using joining table
+            $data = DB::table('movie')
+                ->where('movie.id_category', '=', $categoryShowing->id)
+                ->join('category', 'movie.id_category', '=', 'category.id')
+                ->first();
+        } else {
+            // if using home access
+            // return "melalui home";
+            // Get data using joining table
+            $data = DB::table('movie')
+                ->where('movie.id', '=', $id)
+                ->join('category', 'movie.id_category', '=', 'category.id')
+                ->first();
+        }
         return view('user.review.review', compact('data'));
     }
 
