@@ -22,9 +22,15 @@
             <h5>Result Category </h5>
             @foreach($showingSearch as $categoryComputer)
             <div class="col-md-2 mb-3">
-                <a href="/review/{{$categoryComputer->id}}">
-                    <img src="/storage/poster/{{$categoryComputer->poster}}" class="card-img-top posterHome" alt="">
-                </a>
+                <div class="card shadow-0">
+                    <a href="/review/{{$categoryComputer->id}}" class="text-dark">
+                        <div class="bg-image hover-zoom">
+                            <img src="/storage/poster/{{$categoryComputer->poster}}" class="card-img-top" alt="Sunset Over the Sea" />
+                            <h5 class="mt-3">{{$categoryComputer->title}}</h5>
+                            <h6>2010</h6>
+                        </div>
+                    </a>
+                </div>
             </div>
             @endforeach
         </div>
