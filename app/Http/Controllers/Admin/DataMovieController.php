@@ -56,20 +56,14 @@ class DataMovieController extends Controller
     {
         // Handling Catch Error
         try {
-
             // Validate Form
             Validator::make($request->all(), [
                 'title' => ['required', 'string', 'max:255'],
                 'description' => ['required', 'string'],
                 'link_film' => ['required', 'string'],
                 'link_trailer' => ['required', 'string'],
-                'banner' => 'required|image|mimes:jpg,png,jpeg',
-                'poster' => 'required|image|mimes:jpg,png,jpeg',
-            ]);
-
-            // Category table insert and get add variable for get id category
-            $category = Category::create([
-                'category' => $request->category
+                'banner' => 'required|image|',
+                'poster' => 'required|image|',
             ]);
 
             // store file to image public
@@ -81,6 +75,10 @@ class DataMovieController extends Controller
             $imageBanner = time() . '.' . $request->banner->extension();
             $request->banner->storeAs('public/banner', $imageBanner);
 
+            // Category table insert and get add variable for get id category
+            $category = Category::create([
+                'category' => $request->category
+            ]);
 
             // Movie Table insert
             Movie::create([
@@ -92,6 +90,7 @@ class DataMovieController extends Controller
                 'banner' => $imageBanner,
                 'link_trailer' => $request->link_trailer
             ]);
+
 
             return redirect('/dataMovie')->with('success', 'Data Has Been Saved');
         } catch (\Throwable $th) {

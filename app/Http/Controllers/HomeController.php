@@ -19,7 +19,7 @@ class HomeController extends Controller
         // showing movie data in home page users
         $data = DB::table('movie')
             ->latest('movie.updated_at')
-            ->get();
+            ->paginate(9);
 
         return view('user.dashboard.home', compact('data'));
     }

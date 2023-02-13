@@ -35,7 +35,7 @@
             <!-- Banner input -->
             <label for="">Banner Movie</label>
             <div class="form-outline mb-4">
-                <input type="file" id="banner" class="form-control" name="banner" required />
+                <input type="file" id="Banner" class="form-control" name="banner" required />
             </div>
 
             <!-- Poster input -->
