@@ -40,30 +40,17 @@
                 </div>
                 <a href="{{$data->link_film}}" class="btn btn-dark btn-lg mt-3">Watch Movie</a>
             </div>
-        </div>
-    </div>
-
-    <!-- comment content -->
-    @guest
-    @if (Route::has('login'))
-    <!--  -->
-    @endif
-    @else
-    <div class="row mt-5 mb-4">
-        <div class="col-md-8">
-            <h6>Comment</h6>
-            <div class="input-group">
-                <form action="" method="post">
-                    <div class="form-outline">
-                        <input id="search-input" type="search" id="form1" class="form-control" />
-                        <label class="form-label" for="form1">Search</label>
-                    </div>
-                    <button id="search-button" type="button" class="btn btn-primary">
-                        post
-                    </button>
-                </form>
+            <div class="mt-5">
+                <!-- comment content -->
+                @guest
+                @if (Route::has('login'))
+                <!--  -->
+                @endif
+                @else
+                <h6>Rating</h6>
+                
+                @endguest
             </div>
         </div>
     </div>
-    @endguest
 </div>
