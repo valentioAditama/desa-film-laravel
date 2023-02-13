@@ -19,8 +19,21 @@ class HomeController extends Controller
         // showing movie data in home page users
         $data = DB::table('movie')
             ->latest('movie.updated_at')
-            ->paginate(9);
+            ->paginate(12);
 
         return view('user.dashboard.home', compact('data'));
+    }
+
+    public function searchMovie(Request $request)
+    {
+        // Searching movie data in home page users
+        $searchMovie = DB::table('movie')
+            ->where('title', 'LIKE', '%' . $request->searchMovie . '%')
+            ->paginate(12);
+
+        // return value for search bar
+        $searchResult = $request->searchMovie;
+
+        return view('user.dashboard.searchMovie', compact('searchMovie', 'searchResult'));
     }
 }

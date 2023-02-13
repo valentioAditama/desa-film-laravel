@@ -53,11 +53,6 @@
     }
 
     setInterval(time, 1000);
-
-    var quill = new Quill('#editor', {
-        placeholder: "Enter Description",
-        theme: 'snow'
-    });
 </script>
 
 </html>

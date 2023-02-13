@@ -20,6 +20,7 @@ Auth::routes();
 // User
 // Dashboard
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/searchMovie', [App\Http\Controllers\HomeController::class, 'searchMovie'])->name('searchMovie');
 
 // Review Film
 Route::get('/review/{id}', [App\Http\Controllers\ReviewController::class, 'show'])->name('review');

@@ -25,7 +25,7 @@
                 <form action="/searchMovie" method="get">
                     <div class="input-group">
                         <div class="form-outline">
-                            <input id="search-input" type="search" id="form1" name="searchMovie" class="form-control" />
+                            <input id="search-input" type="search" id="form1" name="searchMovie" class="form-control" value="{{$searchResult}}" />
                             <label class="form-label" for="form1">Search</label>
                         </div>
                         <button id="search-button" type="submit" class="btn btn-primary">
@@ -40,7 +40,7 @@
     <div class="mb-5">
         <div class="row">
             <h3><b>Newest Film</b></h3>
-            @foreach($data as $movie)
+            @foreach($searchMovie as $movie)
             <div class="col-md-2">
                 <div class="card shadow-0">
                     <a href="/review/{{$movie->id}}" class="text-dark">
@@ -55,7 +55,7 @@
             @endforeach
         </div>
         <div class="d-flex justify-content-end">
-            {!! $data->links() !!}
+            {!! $searchMovie->links() !!}
         </div>
     </div>
 </div>
