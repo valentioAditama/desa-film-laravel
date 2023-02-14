@@ -11,7 +11,7 @@
                             <h1 class="card-text mb-3">{{$dataContainer}}</h1>
                         </div>
                         <div class="col-md-6">
-                            <img src="{{ asset('icon/group.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
+                            <img src="{{ asset('icon/movie.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
                         </div>
                     </div>
                     <button type="button" class="btn btn-primary">Load More</button>
