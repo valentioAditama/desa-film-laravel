@@ -47,8 +47,41 @@
                 <!--  -->
                 @endif
                 @else
-                <h6>Rating</h6>
-                
+                <h4>Rating Star</h4>
+                <form action="/review/feedback" method="post">
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="starReview" id="inlineRadio1" value="1" />
+                        <label class="form-check-label" for="inlineRadio1">Star 1</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="starReview" id="inlineRadio2" value="2" />
+                        <label class="form-check-label" for="inlineRadio2">Star 2</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="starReview" id="inlineRadio2" value="3" />
+                        <label class="form-check-label" for="inlineRadio2">Star 3</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="starReview" id="inlineRadio2" value="4" />
+                        <label class="form-check-label" for="inlineRadio2">Star 4</label>
+                    </div>
+
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="radio" name="starReview" id="inlineRadio2" value="5" />
+                        <label class="form-check-label" for="inlineRadio2">Star 5</label>
+                    </div>
+
+                    <div class="mt-3">
+                        <textarea name="preview" id="" cols="30" rows="10" class="form-control" placeholder="Add Description"></textarea>
+                    </div>
+
+                    <div class="mt-3">
+                        <button type="submit" class="btn btn-primary btn-sm">Give feedback</button>
+                    </div>
+                </form>
                 @endguest
             </div>
         </div>
