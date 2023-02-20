@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Review;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class DataReviewController extends Controller
 {
@@ -20,7 +22,13 @@ class DataReviewController extends Controller
 
     public function index()
     {
-        return view('admin.review.review');
+        // data count for data review and table
+        $dataReview = Review::all()->count('id');
+        $dataReviewTable = DB::table('review')
+            ->latest('review.updated_at')
+            ->paginate(5);
+
+        return view('admin.review.review', compact('dataReview', 'dataReviewTable'));
     }
 
     /**

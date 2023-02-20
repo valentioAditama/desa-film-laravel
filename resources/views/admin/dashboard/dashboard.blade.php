@@ -46,7 +46,7 @@
                     <div class="row">
                         <div class="col-md-6">
                             <h5 class="card-title">Data Review</h5>
-                            <h1 class="card-text mb-3">100</h1>
+                            <h1 class="card-text mb-3">{{$dataReview}}</h1>
                         </div>
                         <div class="col-md-6">
                             <img src="{{ asset('icon/review.png') }}" class="img-fluid h-10" style="height: 15vh;" alt="">
@@ -135,45 +135,19 @@
                     <th>No</th>
                     <th>Preview</th>
                     <th>Rating</th>
-                    <th>Action</th>
                 </thead>
                 <tbody>
+                    @php
+                    $no = 1;
+                    @endphp
+                    @foreach($dataReviewTable as $review)
                     <tr>
-                        <td>1</td>
-                        <td>Peanut Butter</td>
-                        <td>10</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
+                        <td>{{ $no++ }}</td>
+                        <td>{{ $review->preview }}</td>
+                        <td>{{ $review->rating }}</td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Peanut Butter Chocolate</td>
-                        <td>5</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Peanut Butter Chocolate Cake</td>
-                        <td>3</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Peanut Butter Chocolate Cake with Kool-aid</td>
-                        <td>2</td>
-                        <td>
-                            <button class="btn btn-primary">Edit</button>
-                            <button class="btn btn-danger">Delete</button>
-                        </td>
-                    </tr>
+
+                    @endforeach
                 </tbody>
             </table>
             <div class="d-flex justify-content-end mb-4">

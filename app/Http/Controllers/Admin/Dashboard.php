@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Movie;
+use App\Models\Review;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
@@ -36,11 +37,19 @@ class Dashboard extends Controller
             ->latest('movie.updated_at')
             ->paginate(5);
 
+        // data count for data review and table
+        $dataReview = Review::all()->count('id');
+        $dataReviewTable = DB::table('review')
+            ->latest('review.updated_at')
+            ->paginate(5);
+
         return view('admin.dashboard.dashboard', compact(
             'dataUser',
             'dataUserTable',
             'dataMovie',
-            'dataMovieTable'
+            'dataMovieTable',
+            'dataReview',
+            'dataReviewTable'
         ));
     }
 
