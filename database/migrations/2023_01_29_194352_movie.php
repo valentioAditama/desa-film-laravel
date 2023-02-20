@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('banner')->nullable();
             $table->string('poster')->nullable();
             $table->string('link_trailer');
-            $table->string('id_review')->nullable();
             $table->timestamps();
         });
     }

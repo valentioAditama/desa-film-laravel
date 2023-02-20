@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('review', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('id_movie');
+            $table->string('id_user');
             $table->string('preview');
             $table->string('rating');
             $table->timestamps();

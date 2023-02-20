@@ -19,7 +19,6 @@ class Movie extends Model
         'link_film',
         'banner',
         'poster',
-        'link_trailer',
-        'id_review'
+        'link_trailer'
     ];
 }

@@ -47,8 +47,25 @@
         <!--  -->
         @endif
         @else
+
+        <!-- Message Response successfully -->
+        @if (session()->has('success'))
+        <script>
+          alert('Successfully To Add Rating, Thank you!');
+        </script>
+        @endif
+
+        <!-- Message Response failed -->
+        @if (session()->has('failed'))
+        <script>
+          alert('There is something wrong with the system');
+        </script>
+        @endif
+
         <h4>Rating Star</h4>
         <form action="/review/feedback" method="post">
+          @csrf
+          <input type="hidden" name="id_movie" value="{{$data->id}}">
           <div class="form-check form-check-inline">
             <input class="form-check-input" type="radio" name="starReview" id="inlineRadio1" value="1" />
             <label class="form-check-label" for="inlineRadio1">Star 1</label>
@@ -75,7 +92,7 @@
           </div>
 
           <div class="mt-3">
-            <textarea name="preview" id="" cols="30" rows="10" class="form-control" placeholder="Add Description"></textarea>
+            <textarea name="previewDescription" id="" cols="30" rows="10" class="form-control" placeholder="Add Description"></textarea>
           </div>
 
           <div class="mt-3">
