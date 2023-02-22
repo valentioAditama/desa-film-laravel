@@ -70,11 +70,6 @@ class ReviewController extends Controller
    */
   public function show($id, Request $request)
   {
-    // if the user has made a comment will be displayed
-    $commentUser = DB::table('review')
-      ->where('id_movie', '=', $id)
-      ->get();
-
     // if opened using category
     $categoryShowing = DB::table('category')
       ->where('id', '=', $id)
@@ -98,7 +93,7 @@ class ReviewController extends Controller
         ->first();
     }
 
-    return view('user.review.review', compact('data', 'commentUser'));
+    return view('user.review.review', compact('data'));
   }
 
   /**
